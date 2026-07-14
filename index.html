@@ -26,7 +26,7 @@
       color: var(--ink);
       overflow: hidden;
     }
-
+ 
     /* ── SCREENS ── */
     .screen {
       position: fixed; inset: 0;
@@ -40,7 +40,7 @@
     .screen.hidden {
       opacity: 0; pointer-events: none; transform: translateX(28px);
     }
-
+ 
     /* ── COVER ── */
     #cover { align-items: stretch; }
     .cover-hero {
@@ -57,7 +57,7 @@
     }
     .eyebrow {
       font-size: 10px; font-weight: 500; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--warm); margin-bottom: 10px;
+      text-transform: uppercase; color: var(--primary); margin-bottom: 10px;
     }
     .cover-title {
       font-family: 'Cormorant Garamond', serif;
@@ -84,7 +84,7 @@
     }
     .btn-primary {
       align-self: stretch;
-      background: var(--ink); color: var(--cream);
+      background: var(--ink); color: var(--base);
       border: none; border-radius: 2px;
       font-family: 'DM Sans', sans-serif;
       font-size: 12px; font-weight: 500; letter-spacing: 0.12em;
@@ -92,7 +92,7 @@
       cursor: pointer; transition: background 0.2s, transform 0.15s;
     }
     .btn-primary:active { background: #3A3530; transform: scale(0.98); }
-
+ 
     /* ── QUESTION ── */
     #question { align-items: stretch; }
     .q-topbar {
@@ -104,7 +104,7 @@
       flex: 1; height: 4px; background: var(--border); border-radius: 99px; overflow: hidden;
     }
     .q-progress-fill {
-      height: 100%; background: var(--warm); border-radius: 99px;
+      height: 100%; background: var(--primary); border-radius: 99px;
       transition: width 0.45s cubic-bezier(.4,0,.2,1);
     }
     .q-step-label {
@@ -113,7 +113,7 @@
     }
     .q-image {
       width: 100%; height: 44vw; max-height: 220px;
-      background: linear-gradient(135deg, #D4C4B4 0%, #9E8878 100%);
+      background: linear-gradient(135deg, #C9D5DE 0%, #6E8CA3 100%);
       display: flex; align-items: center; justify-content: center;
       font-size: 62px; flex-shrink: 0; overflow: hidden;
     }
@@ -123,7 +123,7 @@
     .q-body { flex: 1; padding: 22px 20px 108px; }
     .q-counter {
       font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--warm); margin-bottom: 6px;
+      text-transform: uppercase; color: var(--primary); margin-bottom: 6px;
     }
     .q-title {
       font-family: 'Cormorant Garamond', serif;
@@ -149,12 +149,12 @@
       font-size: 13px; line-height: 1.4; color: var(--ink);
     }
     .option-btn.selected {
-      border-color: var(--warm); background: #FDF5EF;
+      border-color: var(--primary); background: #EEF3F6;
     }
-    .option-btn.selected .opt-label { color: var(--warm); }
+    .option-btn.selected .opt-label { color: var(--primary); }
     .q-nav {
       position: fixed; bottom: 0; left: 0; right: 0;
-      background: var(--cream); border-top: 1px solid var(--border);
+      background: var(--base); border-top: 1px solid var(--border);
       padding: 12px 16px 16px; display: flex; gap: 10px;
       z-index: 10;
     }
@@ -167,7 +167,7 @@
     }
     .btn-ghost:active { background: var(--border); }
     .btn-next {
-      flex: 2.5; background: var(--ink); color: var(--cream);
+      flex: 2.5; background: var(--ink); color: var(--base);
       border: none; border-radius: 2px;
       font-family: 'DM Sans', sans-serif;
       font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
@@ -175,22 +175,22 @@
       transition: opacity 0.2s;
     }
     .btn-next:disabled { opacity: 0.32; cursor: default; }
-
+ 
     /* ── RESULT ── */
     #result { align-items: stretch; }
     .result-header {
-      background: var(--ink); color: var(--cream);
+      background: var(--ink); color: var(--base);
       padding: 44px 24px 32px; text-align: center; flex-shrink: 0;
     }
-    .result-header .eyebrow { color: var(--blush); margin-bottom: 10px; }
+    .result-header .eyebrow { color: var(--secondary-light); margin-bottom: 10px; }
     .result-header h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(26px, 7.5vw, 40px); font-weight: 700; line-height: 1.1;
       margin-bottom: 8px;
     }
-    .result-header p { font-size: 13px; color: #B0A89F; line-height: 1.6; }
+    .result-header p { font-size: 13px; color: #A9AFB5; line-height: 1.6; }
     .result-count-bar {
-      background: #241F1C; color: var(--blush);
+      background: #1F2A33; color: var(--secondary-light);
       padding: 10px 24px; text-align: center;
       font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -212,7 +212,7 @@
     .product-img {
       width: 80px; height: 80px; min-width: 80px;
       border-radius: 6px; overflow: hidden;
-      background: linear-gradient(135deg, #DDD0C4 0%, #B0988A 100%);
+      background: linear-gradient(135deg, #D3DEE5 0%, #8CA5B8 100%);
       display: flex; align-items: center; justify-content: center;
       font-size: 34px;
     }
@@ -225,7 +225,7 @@
     .product-info { flex: 1; min-width: 0; }
     .product-tag {
       font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--sage); margin-bottom: 4px;
+      text-transform: uppercase; color: var(--secondary); margin-bottom: 4px;
     }
     .product-name {
       font-family: 'Cormorant Garamond', serif;
@@ -234,24 +234,24 @@
     }
     .btn-buy {
       display: inline-block;
-      background: var(--warm); color: #fff;
+      background: var(--primary); color: #fff;
       border: none; border-radius: 2px; text-decoration: none;
       font-family: 'DM Sans', sans-serif;
       font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
       text-transform: uppercase; padding: 9px 16px; cursor: pointer;
       transition: background 0.2s;
     }
-    .btn-buy:active { background: #AD7A54; }
+    .btn-buy:active { background: #2F4760; }
     .retake-wrap { padding: 0 20px 48px; display: flex; flex-direction: column; gap: 10px; }
     .btn-send {
-      width: 100%; background: var(--warm); color: #fff;
+      width: 100%; background: var(--primary); color: #fff;
       border: none; border-radius: 2px;
       font-family: 'DM Sans', sans-serif;
       font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
       text-transform: uppercase; padding: 16px; cursor: pointer;
       transition: background 0.2s;
     }
-    .btn-send:active { background: #AD7A54; }
+    .btn-send:active { background: #2F4760; }
     .btn-retake {
       width: 100%; background: transparent;
       border: 1.5px solid var(--ink); border-radius: 2px;
@@ -262,7 +262,7 @@
   </style>
 </head>
 <body>
-
+ 
 <!-- ══════════════════════════════════════
      COVER
 ══════════════════════════════════════ -->
@@ -289,7 +289,7 @@
     <button class="btn-primary" onclick="startQuiz()">開始</button>
   </div>
 </div>
-
+ 
 <!-- ══════════════════════════════════════
      QUESTION
 ══════════════════════════════════════ -->
@@ -311,7 +311,7 @@
     <button class="btn-next" id="btnNext" onclick="nextQuestion()" disabled>繼續 →</button>
   </div>
 </div>
-
+ 
 <!-- ══════════════════════════════════════
      RESULT
 ══════════════════════════════════════ -->
@@ -328,7 +328,7 @@
     <button class="btn-retake" onclick="retakeQuiz()">再一次</button>
   </div>
 </div>
-
+ 
 <script>
 // ═══════════════════════════════════════════════════════════════
 //  PRODUCT CATALOG
@@ -494,16 +494,16 @@ function startQuiz() {
   renderQuestion();
   show('question');
 }
-
+ 
 // ── QUESTION ─────────────────────────────────────────────────
 function renderQuestion() {
   const q     = QUESTIONS[currentQ];
   const total = QUESTIONS.length;
   const pct   = (currentQ / total) * 100;
-
+ 
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('qStepLabel').textContent   = `${currentQ + 1} / ${total}`;
-
+ 
   const qImageEl = document.getElementById('qImage');
   if (q.image) {
     qImageEl.innerHTML = `<img src="${q.image}" alt="" />`;
@@ -511,10 +511,10 @@ function renderQuestion() {
     qImageEl.innerHTML = '';
     qImageEl.textContent = q.emoji;
   }
-
+ 
   document.getElementById('qCounter').textContent = `第 ${currentQ + 1} 題，共 ${total} 題`;
   document.getElementById('qTitle').textContent   = q.title;
-
+ 
   const grid   = document.getElementById('optionsGrid');
   const labels = ['A', 'B', 'C', 'D'];
   grid.innerHTML = '';
@@ -525,7 +525,7 @@ function renderQuestion() {
     btn.onclick = () => selectOption(i);
     grid.appendChild(btn);
   });
-
+ 
   const isFirst = currentQ === 0;
   const isLast  = currentQ === total - 1;
   document.getElementById('btnPrev').style.display = isFirst ? 'none' : 'block';
@@ -533,7 +533,7 @@ function renderQuestion() {
   btnNext.disabled    = answers[currentQ] === null;
   btnNext.textContent = isLast ? '查看結果 →' : '繼續 →';
 }
-
+ 
 function selectOption(i) {
   answers[currentQ] = i;
   document.querySelectorAll('.option-btn').forEach((b, idx) =>
@@ -541,25 +541,25 @@ function selectOption(i) {
   );
   document.getElementById('btnNext').disabled = false;
 }
-
+ 
 function nextQuestion() {
   if (answers[currentQ] === null) return;
   if (currentQ < QUESTIONS.length - 1) { currentQ++; renderQuestion(); }
   else showResult();
 }
-
+ 
 function prevQuestion() {
   if (currentQ > 0) { currentQ--; renderQuestion(); }
   else show('cover');
 }
-
+ 
 // ── RESULT (in-app, NO price shown) ────────────────────────────
 function showResult() {
   const recommended = getRecommended();
-
+ 
   document.getElementById('resultCountBar').textContent =
     `${recommended.length} 款符合您髮質的產品`;
-
+ 
   const list = document.getElementById('productsList');
   list.innerHTML = '';
   recommended.forEach((pid, idx) => {
@@ -570,10 +570,10 @@ function showResult() {
     card.innerHTML = renderProductCard(p);
     list.appendChild(card);
   });
-
+ 
   show('result');
 }
-
+ 
 function renderProductCard(p) {
   const imgHTML = p.image
     ? `<div class="product-img"><img src="${p.image}" alt="${p.name}" /></div>`
@@ -585,14 +585,14 @@ function renderProductCard(p) {
       <a class="btn-buy" href="${p.storeUrl}" target="_blank">立即購買</a>
     </div>`;
 }
-
+ 
 function retakeQuiz() {
   answers.fill(null);
   currentQ = 0;
   renderQuestion();
   show('question');
 }
-
+ 
 // ── FLEX MESSAGE → LINE CHAT (price shown here only) ───────────
 function buildFlexBubble(p) {
   return {
@@ -602,7 +602,7 @@ function buildFlexBubble(p) {
       type: "box",
       layout: "vertical",
       paddingAll: "0px",
-      backgroundColor: "#FAF7F2",
+      backgroundColor: "#FAFBFC",
       contents: [
         {
           type: "box",
@@ -624,8 +624,8 @@ function buildFlexBubble(p) {
               background: {
                 type: "linearGradient",
                 angle: "0deg",
-                startColor: "#1A1714cc",
-                endColor: "#1A171400"
+                startColor: "#1A1D21cc",
+                endColor: "#1A1D2100"
               },
               width: "100%",
               height: "50%",
@@ -644,7 +644,7 @@ function buildFlexBubble(p) {
                 {
                   type: "text",
                   text: p.name,
-                  color: "#FAF7F2",
+                  color: "#FAFBFC",
                   size: "sm",
                   weight: "bold",
                   wrap: true
@@ -652,7 +652,7 @@ function buildFlexBubble(p) {
                 {
                   type: "text",
                   text: p.price,
-                  color: "#C8956C",
+                  color: "#8FA9BE",
                   size: "sm",
                   weight: "bold"
                 }
@@ -663,7 +663,7 @@ function buildFlexBubble(p) {
         {
           type: "box",
           layout: "vertical",
-          backgroundColor: "#FAF7F2",
+          backgroundColor: "#FAFBFC",
           paddingAll: "12px",
           contents: [
             {
@@ -674,7 +674,7 @@ function buildFlexBubble(p) {
                 uri: p.storeUrl
               },
               style: "primary",
-              color: "#C8956C",
+              color: "#3E5C76",
               height: "sm"
             }
           ]
@@ -683,17 +683,17 @@ function buildFlexBubble(p) {
     }
   };
 }
-
+ 
 async function sendToChat() {
   const recommended = getRecommended();
-
+ 
   if (recommended.length === 0) {
     alert("沒有符合的產品推薦！");
     return;
   }
-
+ 
   const bubbles = recommended.map(pid => buildFlexBubble(PRODUCTS[pid]));
-
+ 
   try {
     await liff.sendMessages([
       {
