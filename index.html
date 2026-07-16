@@ -602,7 +602,7 @@ function buildFlexBubble(p) {
       type: "box",
       layout: "vertical",
       paddingAll: "0px",
-      backgroundColor: "#FAFBFC",
+      backgroundColor: "#FDFBF7",
       contents: [
         {
           type: "box",
@@ -624,8 +624,8 @@ function buildFlexBubble(p) {
               background: {
                 type: "linearGradient",
                 angle: "0deg",
-                startColor: "#1A1D21cc",
-                endColor: "#1A1D2100"
+                startColor: "#3D2F24cc",
+                endColor: "#3D2F2400"
               },
               width: "100%",
               height: "50%",
@@ -644,7 +644,7 @@ function buildFlexBubble(p) {
                 {
                   type: "text",
                   text: p.name,
-                  color: "#FAFBFC",
+                  color: "#FDFBF7",
                   size: "sm",
                   weight: "bold",
                   wrap: true
@@ -652,7 +652,7 @@ function buildFlexBubble(p) {
                 {
                   type: "text",
                   text: p.price,
-                  color: "#8FA9BE",
+                  color: "#DFB89A",
                   size: "sm",
                   weight: "bold"
                 }
@@ -663,7 +663,7 @@ function buildFlexBubble(p) {
         {
           type: "box",
           layout: "vertical",
-          backgroundColor: "#FAFBFC",
+          backgroundColor: "#FFFFFF",
           paddingAll: "12px",
           contents: [
             {
@@ -674,7 +674,7 @@ function buildFlexBubble(p) {
                 uri: p.storeUrl
               },
               style: "primary",
-              color: "#3E5C76",
+              color: "#C69B7B",
               height: "sm"
             }
           ]
@@ -683,17 +683,65 @@ function buildFlexBubble(p) {
     }
   };
 }
- 
+
+function buildIntroBubble() {
+  return {
+    type: "bubble",
+    size: "kilo",
+    body: {
+      type: "box",
+      layout: "vertical",
+      paddingAll: "0px",
+      backgroundColor: "#FDFBF7",
+      contents: [
+        {
+          type: "image",
+          url: "https://raw.githubusercontent.com/sh-arch2260/product-catalog/master/esuchen/result-card.png",
+          size: "full",
+          aspectRatio: "1:1",
+          aspectMode: "cover"
+        },
+        {
+          type: "box",
+          layout: "horizontal",
+          backgroundColor: "#FFFFFF",
+          paddingAll: "18px",
+          contents: [
+            {
+              type: "text",
+              text: "您的專屬髮品推薦",
+              color: "#6E503B",
+              size: "sm",
+              weight: "bold",
+              gravity: "center",
+              flex: 1
+            },
+            {
+              type: "text",
+              text: "→",
+              color: "#6E503B",
+              size: "md",
+              weight: "bold",
+              align: "end",
+              gravity: "center"
+            }
+          ]
+        }
+      ]
+    }
+  };
+}
+
 async function sendToChat() {
   const recommended = getRecommended();
- 
+
   if (recommended.length === 0) {
     alert("沒有符合的產品推薦！");
     return;
   }
- 
-  const bubbles = recommended.map(pid => buildFlexBubble(PRODUCTS[pid]));
- 
+
+  const bubbles = [buildIntroBubble(), ...recommended.map(pid => buildFlexBubble(PRODUCTS[pid]))];
+
   try {
     await liff.sendMessages([
       {
