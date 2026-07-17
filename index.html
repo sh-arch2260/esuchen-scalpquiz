@@ -97,11 +97,11 @@
     #question { align-items: stretch; }
     .q-topbar {
       display: flex; align-items: center; gap: 12px;
-      padding: 14px 16px 10px;
+      padding: 18px 20px 0;
       flex-shrink: 0;
     }
     .q-progress-track {
-      flex: 1; height: 4px; background: var(--border); border-radius: 99px; overflow: hidden;
+      flex: 1; height: 3px; background: var(--border); border-radius: 99px; overflow: hidden;
     }
     .q-progress-fill {
       height: 100%; background: var(--primary); border-radius: 99px;
@@ -111,24 +111,29 @@
       font-size: 11px; font-weight: 500; color: var(--muted);
       white-space: nowrap; letter-spacing: 0.04em;
     }
-    .q-image {
-      width: 100%; height: 44vw; max-height: 220px;
-      background: linear-gradient(135deg, #C9D5DE 0%, #6E8CA3 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 62px; flex-shrink: 0; overflow: hidden;
+
+    /* Signature: running numeral replaces the old per-question photo. */
+    .q-marker {
+      display: flex; align-items: baseline; gap: 6px;
+      padding: 28px 20px 0;
+      flex-shrink: 0;
     }
-    .q-image img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
+    .q-marker-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px; font-weight: 700; line-height: 1;
+      color: var(--primary);
     }
-    .q-body { flex: 1; padding: 22px 20px 108px; }
-    .q-counter {
-      font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--primary); margin-bottom: 6px;
+    .q-marker-total {
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      letter-spacing: 0.04em;
     }
+
+    .q-body { flex: 1; padding: 14px 20px 108px; }
     .q-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(20px, 5.5vw, 28px); font-weight: 600; line-height: 1.22;
-      margin-bottom: 22px;
+      font-size: clamp(21px, 5.8vw, 29px); font-weight: 600; line-height: 1.25;
+      margin: 6px 0 26px;
+      max-width: 340px;
     }
     .options-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
@@ -136,9 +141,9 @@
     .option-btn {
       background: var(--card);
       border: 1.5px solid var(--border); border-radius: 6px;
-      padding: 14px 12px; text-align: left; cursor: pointer;
+      padding: 16px 14px; text-align: left; cursor: pointer;
       transition: border-color 0.18s, background 0.18s, transform 0.12s;
-      display: flex; flex-direction: column; gap: 5px;
+      display: flex; flex-direction: column; gap: 6px;
     }
     .option-btn:active { transform: scale(0.97); }
     .opt-label {
@@ -300,9 +305,11 @@
     </div>
     <span class="q-step-label" id="qStepLabel"></span>
   </div>
-  <div class="q-image" id="qImage"></div>
+  <div class="q-marker">
+    <span class="q-marker-num" id="qMarkerNum"></span>
+    <span class="q-marker-total" id="qMarkerTotal"></span>
+  </div>
   <div class="q-body">
-    <div class="q-counter" id="qCounter"></div>
     <h2 class="q-title" id="qTitle"></h2>
     <div class="options-grid" id="optionsGrid"></div>
   </div>
@@ -351,6 +358,9 @@ const PRODUCTS = {
 
 // ═══════════════════════════════════════════════════════════════
 //  QUESTIONS
+//  NOTE: `image` / `emoji` fields are no longer rendered on the
+//  question screen (removed for a cleaner look), but are left in
+//  place in case you want to reuse them elsewhere later.
 // ═══════════════════════════════════════════════════════════════
 const QUESTIONS = [
   {
@@ -503,17 +513,11 @@ function renderQuestion() {
  
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('qStepLabel').textContent   = `${currentQ + 1} / ${total}`;
- 
-  const qImageEl = document.getElementById('qImage');
-  if (q.image) {
-    qImageEl.innerHTML = `<img src="${q.image}" alt="" />`;
-  } else {
-    qImageEl.innerHTML = '';
-    qImageEl.textContent = q.emoji;
-  }
- 
-  document.getElementById('qCounter').textContent = `第 ${currentQ + 1} 題，共 ${total} 題`;
-  document.getElementById('qTitle').textContent   = q.title;
+
+  document.getElementById('qMarkerNum').textContent   = String(currentQ + 1).padStart(2, '0');
+  document.getElementById('qMarkerTotal').textContent = `／ ${String(total).padStart(2, '0')}`;
+
+  document.getElementById('qTitle').textContent = q.title;
  
   const grid   = document.getElementById('optionsGrid');
   const labels = ['A', 'B', 'C', 'D'];
